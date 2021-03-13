@@ -7,12 +7,11 @@
 
 declare(strict_types=1);
 
-namespace App\EventListener;
+namespace App\EventSubscriber;
 
 use App\Entity\Redirection;
 use App\Repository\RedirectionRepository;
 use App\Repository\UrlRepository;
-use JetBrains\PhpStorm\ArrayShape;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
@@ -20,7 +19,7 @@ use Symfony\Component\HttpKernel\Event\RequestEvent;
 /**
  * Class RequestListener
  *
- * @package App\EventListener
+ * @package App\EventSubscriber
  * @author Lubo Grozdanov <grozdanov.lubo@gmail.com>
  */
 class RequestSubscriber implements EventSubscriberInterface
@@ -35,9 +34,6 @@ class RequestSubscriber implements EventSubscriberInterface
         $this->redirectionRepository = $redirectionRepository;
     }
 
-    #[ArrayShape([
-        RequestEvent::class => 'string',
-    ])]
     public static function getSubscribedEvents(): array
     {
         return [
