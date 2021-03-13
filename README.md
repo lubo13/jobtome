@@ -23,7 +23,8 @@ Bonus
 2. cd jobtome
 3. docker-compose up -d
 4. Go to https://localhost in browser or click <a href='https://localhost'>here</a>
-5. Additionally, there are some tests and you can run it with the following command
+5. Go to OAS Docs in the browser https://localhost/docs in browser or click <a href='https://localhost/docs'>here</a>
+6. Additionally, there are some tests and you can run it with the following command
     - Create test database: `docker-compose exec php bin/console doctrine:database:create -e test`
     - Run database migrations: `docker-compose exec php bin/console doctrine:mig:mig -e test -n`
     - Run tests `docker-compose exec php bin/phpunit` 
