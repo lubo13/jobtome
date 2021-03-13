@@ -33,6 +33,10 @@ jobs:
               run: curl -v -o /dev/null http://localhost
             - name: Check HTTPS reachability
               run: curl  -vk -o /dev/null https://localhost
+            - name: Create test DB
+              run: docker-compose exec -T php bin/console doctrine:database:create -e test
+            - name: Run DB migrations
+              run: docker-compose exec -T php bin/console doctrine:mig:mig -e test -n
             - name: PHPUnit
               run: docker-compose exec -T php bin/phpunit
 #            - name: Jest
