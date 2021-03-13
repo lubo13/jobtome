@@ -1,0 +1,7 @@
+App\Entity\Redirection:
+    redirection_home:
+        counter: 5
+        url: '@dummy_home'
+    redirection_not_found:
+        counter: 10
+        url: '@dummy_not_found'

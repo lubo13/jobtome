@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h3 style="text-align:center">Welcome to Jobtome redirection to the shortened URL service</h3>
+    <div style="text-align:center">Go to <a href="{{ path('api_doc') }}">OpenAPI</a> and create another shortened URL.
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Origin</th>
+            <th scope="col">Location</th>
+            <th scope="col">Count of Redirection</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for k, url in urls %}
+            <tr>
+                <th scope="row">{{ k }}</th>
+                <td><a href="{{ url.origin }}">{{ url.origin }}</a></td>
+                <td>{{ url.location }}</td>
+                <td>
+                    {% if url.redirection %}
+                        {{ url.redirection.counter }}
+                    {% else %}
+                        0
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock body %}

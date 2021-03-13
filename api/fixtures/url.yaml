@@ -1,0 +1,13 @@
+App\Entity\Url:
+    dummy_home:
+        origin: '/old/homepage'
+        location: '/docs'
+    dummy_jobtome:
+        origin: '/jobtome'
+        location: 'http://jobtome.com'
+    dummy_google:
+        origin: '/google'
+        location: 'http://google.com'
+    dummy_not_found:
+        origin: '/not/found/page'
+        location: '/404'
