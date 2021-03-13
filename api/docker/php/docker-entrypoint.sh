@@ -46,6 +46,12 @@ if [ "$1" = 'php-fpm' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/console' ]; then
 		if ls -A migrations/*.php >/dev/null 2>&1; then
 			php bin/console doctrine:migrations:migrate --no-interaction
 		fi
+
+		if [ "$APP_ENV" != 'prod' ]; then
+			if ls -A fixtures/*.yaml >/dev/null 2>&1; then
+				php bin/console haute:fi:lo --no-interaction
+			fi
+		fi
 	fi
 fi
 
