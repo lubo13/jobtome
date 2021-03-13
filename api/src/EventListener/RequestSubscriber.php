@@ -23,7 +23,7 @@ use Symfony\Component\HttpKernel\Event\RequestEvent;
  * @package App\EventListener
  * @author Lubo Grozdanov <grozdanov.lubo@gmail.com>
  */
-class RequestListener implements EventSubscriberInterface
+class RequestSubscriber implements EventSubscriberInterface
 {
     private UrlRepository $urlRepository;
 
@@ -45,6 +45,11 @@ class RequestListener implements EventSubscriberInterface
         ];
     }
 
+    /**
+     * Because it is very basic and easy the logic of incrementation of the counter is here and not moved to service
+     *
+     * @param \Symfony\Component\HttpKernel\Event\RequestEvent $event
+     */
     public function onKernelRequest(RequestEvent $event): void
     {
         $pathInfo = $event->getRequest()->getPathInfo();
